@@ -1,0 +1,9 @@
+[mgr]
+show_hidden=true
+
+[opener]
+edit = [
+    { run = 'nvim "$@"', desc = "nvim", block = true },
+    { run = 'sudoedit nvim "$@"', desc = "sudoedit nvim", block= true},
+    { run = 'nano "$@"', desc= "nano", block = true }
+]

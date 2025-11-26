@@ -1,0 +1,161 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 42,
+    "reload_style_on_change": true,
+    "font": "Iosevka, Extended 10",
+
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["custom/music"],
+    "modules-right": ["tray", "group/usage", "group/left-main", "custom/power"],
+    
+
+"group/usage": {
+		"orientation": "horizontal",
+		"modules": [
+			"cpu",
+			"memory",
+		]
+	},
+
+"group/left-main": {
+    "orientation": "horizontal",
+    "modules": [
+      "idle_inhibitor",
+      "pulseaudio",
+      "network",
+      "bluetooth",
+      "battery",
+      "clock"
+    ]
+  },
+
+
+
+
+  "niri/workspaces": {
+      "class": "modules",
+      "format": "{icon}",
+      "disable-scroll": true,
+      "warp-on-scroll":false,
+      "all-outputs": false,
+      "format-icons": {
+        "terminal": "",
+        "browser": "",
+        "social": "",
+        "urgent": "",
+        "default": "",
+      }
+    },
+    "custom/music": {
+        "return-type": "json",
+        "exec": "waybar-module-music --marquee --title-width 20 --format '%icon% %title% | %artist%'",
+    },
+    "clock": {
+        "class": "modules",
+        "format": "{:%H:%M}",
+        "tooltip-format": "<tt><span font='Monospace'>{calendar}</span></tt>",
+        "calendar": {
+          "mode"          : "year",
+"mode-mon-col"  : 3,
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3' ><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9' ><b>{}</b></span>",
+                              "today":      "<span color='#ff6699' ><b><u>{}</u></b></span>"
+                              }
+        },
+        "actions":  {
+          "on-click-right": "mode",
+          "on-scroll-up": "tz_up",
+          "on-scroll-down": "tz_down",
+          "on-scroll-up": "shift_up",
+          "on-scroll-down": "shift_down"
+        },
+        "tooltip": true
+    },
+    "idle_inhibitor": {
+      "class": "modules",
+      "format": "<span>{icon}</span>",
+      "format-icons": {
+        "activated": " ",
+        "deactivated": " "
+      },
+      "tooltip": false
+    },
+    "battery": {
+        "class": "modules",
+        "format": "{icon} {capacity}% ",
+        "format-alt": "{icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", "", "", "", ""],
+        "format-plugged": " {capacity}% ",
+        "format-plugged-alt": "",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": true
+    },
+    "network": {
+        "class": "modules",
+        "format": "{icon}",
+        "format-alt": "{ifname} {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": {
+            "wifi": [""],
+            "ethernet": [""],
+            "disconnected": [""]
+        },
+        "on-click": "alacritty -e nmtui",
+    "tooltip": false
+    },
+    "bluetooth": {
+"class": "modules",
+    "format": "",
+},
+    "pulseaudio": {
+        "class": "modules",
+        "format": "{icon} {volume}%",
+        "format-alt": "{icon}",
+        "format-alt-click": "click-right",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", ""]
+        },
+        "scroll-step": 0.2,
+        "on-click": "/home/mel/.config/waybar/run-check.sh pavucontrol pavucontrol",
+        "tooltip": true
+    },
+    "cpu": {"class": "modules",
+    "format": " {usage}%"
+},
+"memory": {
+
+    "class": "modules",
+    "format": " {used:0.1f}GB",
+    "format-alt": " {percentage}%"
+},
+    "custom/power": {
+      "format": "",
+      "on-click": "/home/mel/.config/waybar/run-check.sh wlogout wlogout"
+    },
+    
+    "backlight": {
+        "class": "modules",
+        "format": "{icon}",
+        "format-alt": "{percent}% {icon}",
+        "format-alt-click": "click-right",
+        "format-icons": ["", ""],
+        "on-scroll-down": "light -A 1",
+        "on-scroll-up": "light -U 1"
+    },
+
+    "tray": {
+        "class": "modules",
+        "icon-size": 15
+    }
+    
+}

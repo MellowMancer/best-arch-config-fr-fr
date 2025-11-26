@@ -1,0 +1,90 @@
+@import "mocha.css";
+
+* {
+  font-family: "FantasqueSansMono Nerd Font";
+  font-size: 13px;
+  min-height: 0;
+}
+
+button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
+}
+
+.tray, .custom-icon {
+  font-family: "Font Awesome 7 Free";
+}
+
+#waybar {
+  background: transparent;
+  color: @botw-text;
+  margin: 0px 0px;
+}
+
+/* #workspaces { */
+/*   margin: 5px 1rem 0 1rem; */
+/* } */
+
+#workspaces button {
+  color: @botw-text;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: @botw-cyan;
+}
+
+#workspaces button:hover {
+  background-color: transparent;
+}
+
+
+
+#usage, #left-main, #custom-music, #tray, #custom-power, #workspaces {
+  color: @botw-text;
+  background-color: @botw-background;
+  padding: 0 0.5rem;
+  margin: 0.15rem;
+  border: solid 0.8px @botw-border;
+  border-radius: 0.5rem;
+}
+
+/* #usage:hover, */
+/* #left-main:hover,  */
+/* #custom-music:hover, */
+/* #tray:hover,  */
+/* #custom-power:hover,  */
+/* #workspaces:hover { */
+/*   border: 0.5px solid @botw-active; */
+/* } */
+
+
+.modules-right *, .modules-center *{
+  padding: 0 0.5rem;
+}
+
+
+
+#bluetooth.connected {
+  color: @botw-cyan;
+}
+
+#battery.plugged {
+  color: @botw-green;
+}
+
+#battery.warning:not(.charging) {
+  color: @botw-red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#custom-power{
+  padding: 0rem 0.8rem;
+    color: @botw-red;
+}
+
+

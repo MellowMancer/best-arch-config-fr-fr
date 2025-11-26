@@ -1,0 +1,17 @@
+# global style
+font=Iosevko 10
+width=280
+border-color=#9e9a96
+border-size=1
+border-radius=4
+max-icon-size=42
+background-color=#2a2d30e6
+text-color=#f9f3e8
+default-timeout=9000
+layer=overlay
+max-visible=3
+padding=10
+
+[mode=do-not-disturb]
+invisible=1
+
