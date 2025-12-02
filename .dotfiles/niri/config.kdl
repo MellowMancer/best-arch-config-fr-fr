@@ -301,6 +301,8 @@ layout {
 //spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 
+spawn-at-startup "niri-float-sticky"
+
 spawn-at-startup "swayidle" "-w" \
   "timeout" "600" "niri msg action power-off-monitors" \
   "timeout" "900" "swaylock -f" \
@@ -373,6 +375,7 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"firefox$"# title="/OAuth/i"
     open-floating true
 }
 
@@ -387,6 +390,11 @@ window-rule {
 window-rule {
     match app-id=r#"^discord$"#
     open-on-workspace "social"
+}
+
+window-rule {
+  match app-id=r#"^alacritty$"#
+  open-on-workspace "terminal"
 }
 
 
