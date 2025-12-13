@@ -1,8 +1,9 @@
 @import "mocha.css";
 
 * {
-  font-family: "FantasqueSansMono Nerd Font";
-  font-size: 13px;
+  font-family: "Iosevka";
+  font-size: 12px;
+  font-weight: 500;
   min-height: 0;
 }
 
@@ -17,8 +18,10 @@ button:hover {
 }
 
 #waybar {
-  background: transparent;
+  background: @botw-background;
   color: @botw-text;
+  border: solid 0.8px @botw-border;
+  border-radius: 0.5rem;
   margin: 0px 0px;
 }
 
@@ -42,12 +45,17 @@ button:hover {
 
 
 #usage, #left-main, #custom-music, #tray, #custom-power, #workspaces {
-  color: @botw-text;
-  background-color: @botw-background;
   padding: 0.4rem 0.4rem;
-  margin: 0 0.15rem;
-  border: solid 0.8px @botw-border;
-  border-radius: 0.5rem;
+  background: transparent;
+  border: none;
+  /* border-right: solid 1px @botw-border; */
+  border-radius: 0;
+
+  /* margin: 0 0.15rem; */
+  /* color: @botw-text; */
+  /* background-color: @botw-background; */
+  /* border: solid 0.8px @botw-border; */
+  /* border-radius: 0.5rem; */
 }
 
 /* #usage:hover, */
@@ -63,8 +71,6 @@ button:hover {
 .modules-right *, .modules-center *{
   padding: 0 0.6rem;
 }
-
-
 
 #bluetooth.connected {
   color: @botw-cyan;
@@ -84,7 +90,18 @@ button:hover {
 
 #custom-power{
   padding: 0rem 0.8rem;
+  border-right: none;
     color: @botw-red;
 }
 
+#workspaces{
+  border-left: none;
+}
+
+#custom-spacer{
+  margin: 0.4rem 0;
+  padding: 0;
+  border: none;
+  border-right: solid 0.4px @botw-text;
+}
 

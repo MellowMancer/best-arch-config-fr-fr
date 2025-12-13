@@ -5,9 +5,9 @@
     "reload_style_on_change": true,
     "font": "Iosevka, Extended 10",
 
-    "modules-left": ["niri/workspaces"],
-    "modules-center": ["custom/music"],
-    "modules-right": ["tray", "group/usage", "group/left-main", "custom/power"],
+    "modules-left": ["niri/workspaces", "custom/spacer"],
+    "modules-center": [],
+    "modules-right": ["tray", "custom/spacer", "group/usage", "custom/spacer", "group/left-main", "custom/spacer", "custom/power"],
     
 
 "group/usage": {
@@ -30,7 +30,9 @@
     ]
   },
 
-
+ "custom/spacer": {
+   "format": "​",
+  },
 
 
   "niri/workspaces": {
