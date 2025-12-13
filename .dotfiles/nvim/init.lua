@@ -1,152 +1,9 @@
--- Theme
--- vim.cmd.colorscheme("habamax")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", {bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", {bg = "none" })
--- vim.api.nvim_set_hl(0, "CursorLine", {bg = "#161626"})
-
--- Basic Settings
-vim.opt.number = true  -- Line numbers
-vim.opt.relativenumber = true
-vim.opt.cursorline = true  -- Highlight current line
-vim.opt.wrap = false -- Text wrap
-vim.opt.scrolloff = 10  -- Keep n lines above/below cursor
-vim.sidescrolloff = 8  -- Keep n lines left/right of cursor
-
--- Indentation
-vim.opt.tabstop = 2  --Tab width
-vim.opt.shiftwidth = 2  -- Indent width
-vim.opt.softtabstop = 2 
-vim.opt.expandtab = true -- Use spaces instead of tab
-vim.opt.smartindent = true -- Smart auto-indenting
-vim.opt.autoindent = true -- Copy indent from current line
-
--- Search Settings
-vim.opt.ignorecase = true  -- Case insensitive search
-vim.opt.smartcase = true  -- Case sensitive if uppercase in search
-vim.opt.hlsearch = false -- Highlight search results
-vim.opt.incsearch = true -- Show matches as you type
-
--- Visual Settings
-vim.opt.termguicolors = true  -- Enable 24-bit colors
-vim.opt.signcolumn = "yes"  -- Always show sign column
--- vim.opt.colorcolumn = "100" -- Show column at 100 characters
-vim.opt.showmatch = true  -- Highlight matching brackets
-vim.opt.matchtime = 2  -- How long to show the matching brackets
-vim.opt.cmdheight = 1  -- CMD Height
-vim.opt.completeopt = "menuone,noinsert,noselect"  -- Complettion Options
-vim.opt.showmode = true  -- Dont show mode in CMD Line
-vim.opt.pumheight = 10  -- Popup Menu Height
-vim.opt.pumblend = 5  -- Popup Menu Transparency
-vim.opt.winblend = 0  -- Floating Window Transparency
-vim.conceallevel = 0  -- Dont hide markup
-vim.concealcursor = ""  -- Dont hide cursor line markup
-vim.lazyredraw = true  -- Dont redraw during macros
-vim.opt.synmaxcol = 300  -- Syntax highlighting limit
-
--- File Handling
-vim.opt.backup = false  -- Create backups of files
-vim.opt.writebackup = false  -- Create backup before writing
-vim.opt.swapfile = false  -- Create swapfile
-vim.opt.undofile = true  -- Persistent Undo
-vim.opt.undodir = vim.fn.expand("~/.vim/undodir")
-vim.opt.updatetime = 300  -- Faster Completion
-vim.opt.timeoutlen = 500  -- Key Timeout Duration
-vim.opt.ttimeoutlen = 0  -- Key Code Timeout
-vim.opt.autoread = true  -- Auto reload files changed outside vim
-vim.opt.autowrite = false  -- Dont autosave
-
--- Behaviour Settings
-vim.opt.hidden = true  -- Allow Hidden Buffers
-vim.opt.errorbells = false
-vim.opt.backspace = "indent,eol,start"  -- Better backspace behaviour
-vim.opt.autochdir = false  -- Auto Change Directory
-vim.opt.iskeyword:append("-") -- Treat dash as part of word
-vim.opt.path:append("**") -- Include subdirectories in search
-vim.opt.selection = "exclusive"  -- Selection Behaviour
-vim.opt.mouse = "a"  -- Enable mouse support
-vim.opt.clipboard:append("unnamedplus")  -- Use system clipboard
-vim.opt.modifiable = true  -- Allow buffer modification
-vim.opt.encoding = "UTF-8"  -- Set encoding
-
---Shortcut Settings
- -- Leader Mapping
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
- -- Yank to EOL
-vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
-
--- Folding settings
-vim.opt.foldmethod = "expr"                        -- Use expression for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"    -- Use treesitter for folding
-vim.opt.foldlevel = 99                             -- Start with all folds open
-
--- Split behavior
-vim.opt.splitbelow = true                          -- Horizontal splits go below
-vim.opt.splitright = true                          -- Vertical splits go right
-
--- Normal mode mappings
-vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear search highlights" })
-
--- Center screen when jumping
-vim.keymap.set("n", "n", "nzzzv", { desc = "Next search result (centered)" })
-vim.keymap.set("n", "N", "Nzzzv", { desc = "Previous search result (centered)" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Half page down (centered)" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
-
--- Better paste behavior
-vim.keymap.set("x", "<leader>p", '"_dP', { desc = "Paste without yanking" })
-
--- Delete without yanking
-vim.keymap.set({ "n", "v" }, "<leader>d", '"_d', { desc = "Delete without yanking" })
-
--- Buffer navigation
-vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
-vim.keymap.set("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
-
--- Better window navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-
--- Splitting & Resizing
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<C-Up>", ":resize +2<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", ":resize -2<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
-vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
-
--- Move lines up/down
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-
--- Better indenting in visual mode
-vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
-vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
-
--- Quick file navigation
-vim.keymap.set("n", "<leader>e", ":Explore<CR>", { desc = "Open file explorer" })
-vim.keymap.set("n", "<leader>ff", ":find ", { desc = "Find file" })
-
--- Better J behavior
-vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
-
--- Quick config editing
-vim.keymap.set("n", "<leader>rc", ":e $MYVIMRC<CR>", { desc = "Edit config" })
-vim.keymap.set("n", "<leader>rl", ":so $MYVIMRC<CR>", { desc = "Reload config" })
-
-
 -- ============================================================================
 -- LOADING LAZY.NVIM (PACKAGE MANAGER)
 -- ============================================================================
 
 require("config.lazy")
-
+require("oil").setup()
 
 -- ============================================================================
 -- TABS
@@ -532,13 +389,12 @@ local function setup_statusline()
       "%{v:lua.mode_icon()}",
       "%#StatusLine#",
       " │ %f %h%m%r",
-      "%{v:lua.git_branch()}",
-      " │ ",
-      "%{v:lua.file_type()}",
-      " | ",
-      "%{v:lua.file_size()}",
+      "|%{v:lua.git_branch()}",
       "%=",                     -- Right-align everything after this
-      "%l:%c  %P ",             -- Line:Column and Percentage
+      "%l:%c  %P | ",
+      -- "%{v:lua.file_type()}",
+      -- " | ",
+      "%{v:lua.file_size()}  "            -- Line:Column and Percentage
     }
     end
   })
