@@ -5,6 +5,10 @@ vim.api.nvim_set_hl(0, "NormalNC", {bg = "none" })
 vim.api.nvim_set_hl(0, "EndOfBuffer", {bg = "none" })
 -- vim.api.nvim_set_hl(0, "CursorLine", {bg = "#161626"})
 
+ -- Leader Mapping
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Basic Settings
 vim.opt.number = true  -- Line numbers
 vim.opt.relativenumber = true
@@ -68,4 +72,39 @@ vim.opt.mouse = "a"  -- Enable mouse support
 vim.opt.clipboard:append("unnamedplus")  -- Use system clipboard
 vim.opt.modifiable = true  -- Allow buffer modification
 vim.opt.encoding = "UTF-8"  -- Set encoding
+
+-- ============================================================================
+-- TABS
+-- ============================================================================
+
+-- Tab display settings
+vim.opt.showtabline = 1  -- Always show tabline (0=never, 1=when multiple tabs, 2=always)
+vim.opt.tabline = ''     -- Use default tabline (empty string uses built-in)
+
+-- Transparent tabline appearance
+vim.cmd([[
+  hi TabLineFill guibg=NONE ctermfg=242 ctermbg=NONE
+]])
+
+-- Command-line completion
+vim.opt.wildmenu = true
+vim.opt.wildmode = "longest:full,full"
+vim.opt.wildignore:append({ "*.o", "*.obj", "*.pyc", "*.class", "*.jar" })
+
+-- Better diff options
+vim.opt.diffopt:append("linematch:60")
+
+-- Performance improvements
+vim.opt.redrawtime = 10000
+vim.opt.maxmempattern = 20000
+
+-- Folding settings
+vim.opt.foldmethod = "expr"                        -- Use expression for folding
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"    -- Use treesitter for folding
+vim.opt.foldlevel = 99                             -- Start with all folds open
+
+-- Split behavior
+vim.opt.splitbelow = true                          -- Horizontal splits go below
+vim.opt.splitright = true                          -- Vertical splits go right
+
 

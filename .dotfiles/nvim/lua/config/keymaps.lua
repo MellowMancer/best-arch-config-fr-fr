@@ -1,19 +1,16 @@
---Shortcut Settings
- -- Leader Mapping
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+local fn = require('config.functions')
 
+--Shortcut Settings
  -- Yank to EOL
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
 
--- Folding settings
-vim.opt.foldmethod = "expr"                        -- Use expression for folding
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"    -- Use treesitter for folding
-vim.opt.foldlevel = 99                             -- Start with all folds open
 
--- Split behavior
-vim.opt.splitbelow = true                          -- Horizontal splits go below
-vim.opt.splitright = true                          -- Vertical splits go right
+-- Copy Full File-Path
+vim.keymap.set("n", "<leader>pa", function()
+	local path = vim.fn.expand("%:p")
+	vim.fn.setreg("+", path)
+	print("file:", path)
+end)
 
 -- Normal mode mappings
 vim.keymap.set("n", "<leader>c", ":nohlsearch<CR>", { desc = "Clear search highlights" })
@@ -69,4 +66,26 @@ vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position"
 vim.keymap.set("n", "<leader>rc", ":e $MYVIMRC<CR>", { desc = "Edit config" })
 vim.keymap.set("n", "<leader>rl", ":so $MYVIMRC<CR>", { desc = "Reload config" })
 
+-- Alternative navigation (more intuitive)
+vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', { desc = 'Close tab' })
+vim.keymap.set('n', '<leader>tl', ':tabnext<CR>', { desc = 'Navigate to next tab' })
+vim.keymap.set('n', '<leader>th', ':tabprevious<CR>', {desc = 'Navigate to previous tab' })
+
+-- Tab moving
+vim.keymap.set('n', '<leader>tm', ':tabmove<CR>', { desc = 'Move tab' })
+vim.keymap.set('n', '<leader>t>', ':tabmove +1<CR>', { desc = 'Move tab right' })
+vim.keymap.set('n', '<leader>t<', ':tabmove -1<CR>', { desc = 'Move tab left' })
+
+-- Enhanced keybindings
+vim.keymap.set('n', '<leader>tO', fn.open_file_in_tab, { desc = 'Open file in new tab' })
+vim.keymap.set('n', '<leader>td', fn.duplicate_tab, { desc = 'Duplicate current tab' })
+vim.keymap.set('n', '<leader>tr', fn.close_tabs_right, { desc = 'Close tabs to the right' })
+vim.keymap.set('n', '<leader>tL', fn.close_tabs_left, { desc = 'Close tabs to the left' })
+
+vim.keymap.set('n', '<leader>bd', fn.smart_close_buffer, { desc = 'Smart close buffer/tab' })
+
+-- Key mappings
+vim.keymap.set("n", "<C-/>", fn.FloatingTerminal, { noremap = true, silent = true, desc = "Toggle floating terminal" })
+vim.keymap.set("t", "<Esc>", fn.CloseTerminal, { noremap = true, silent = true, desc = "Close floating terminal from terminal mode" })
 
