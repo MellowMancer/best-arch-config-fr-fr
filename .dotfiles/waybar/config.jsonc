@@ -7,7 +7,7 @@
 
     "modules-left": ["niri/workspaces", "custom/spacer"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/spacer", "group/usage", "custom/spacer", "group/left-main", "custom/spacer", "custom/power"],
+    "modules-right": ["tray", "custom/spacer", "group/usage", "custom/spacer", "group/right-main", "custom/spacer", "custom/power"],
     
 
 "group/usage": {
@@ -18,7 +18,7 @@
 		]
 	},
 
-"group/left-main": {
+"group/right-main": {
     "orientation": "horizontal",
     "modules": [
       "idle_inhibitor",
@@ -102,21 +102,28 @@
     },
     "network": {
         "class": "modules",
-        "format": "{icon}",
-        "format-alt": "{ifname} {icon}",
-        "format-alt-click": "click-right",
+        "format-wifi": "",
+        "format-ethernet": "󰈀 {ifname}",
+        "format-disconnected": "󰖪 ",
+        "tooltip-format": "{ifname}",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "on-click": "/home/mel/.config/waybar/run-check.sh networkmanager_dmenu networkmanager_dmenu",
         "format-icons": {
-            "wifi": [""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
-        "on-click": "alacritty -e nmtui",
-    "tooltip": false
+            "wifi": ["󰖪", "󰖯", "󰖰", "󰖱", "󰖲"]
+        }
     },
     "bluetooth": {
-"class": "modules",
-    "format": "",
-},
+      "class": "modules",
+      "format": "",
+      "format-disabled": "󰂀",
+      "format-connected": "󰽅 ",
+      "tooltip-format": "{controller_alias}\t{controller_address}",
+      "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%",
+      "tooltip-format-enumerate-connected": "{device_alias}",
+      "tooltip-format-connected": "{device_enumerate}",
+      "on-click": "DMENU_BLUETOOTH_LAUNCHER='fuzzel --dmenu -p Bluetooth: --lines 10' dmenu-bluetooth",
+      "on-click-right": "bluetoothctl"
+    },
     "pulseaudio": {
         "class": "modules",
         "format": "{icon} {volume}%",
