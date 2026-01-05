@@ -13,9 +13,9 @@ button:hover {
     background: inherit;
 }
 
-.tray, .custom-icon {
-  font-family: "Font Awesome 7 Free";
-}
+/* .tray, .custom-icon { */
+  /* font-family: "Font Awesome 7 Free"; */
+/* } */
 
 #waybar {
   background: @botw-background;
@@ -74,6 +74,11 @@ button:hover {
 
 #bluetooth.connected {
   color: @botw-cyan;
+}
+
+#bluetooth.disabled,
+#bluetooth.off{
+  color: @botw-red;
 }
 
 #battery.plugged {
