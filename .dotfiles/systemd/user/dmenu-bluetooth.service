@@ -1,0 +1,14 @@
+[Unit]
+Description=dmenu-bluetooth menu
+PartOf=graphical-session.target
+After=graphical-session.target waybar.service
+Requisite=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /home/mel/.local/bin/dmenu-bluetooth --status
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=niri.service
