@@ -17,7 +17,7 @@ swaylock -f \
   --inside-ver-color 00000000 \
   --inside-wrong-color 00000000 \
   --ring-clear-color 00000000 \
-  --ring-wrong-color 00000000 \
+  --ring-wrong-color fc7b7bff \
   --ring-ver-color 00000000 \
   --line-color 00000000 \
   --text-color 8a8a8aff \
