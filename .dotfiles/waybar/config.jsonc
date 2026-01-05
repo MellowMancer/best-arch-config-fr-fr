@@ -121,8 +121,9 @@
       "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%",
       "tooltip-format-enumerate-connected": "{device_alias}",
       "tooltip-format-connected": "{device_enumerate}",
-      "on-click": "DMENU_BLUETOOTH_LAUNCHER='fuzzel --dmenu -p Bluetooth: --lines 10' dmenu-bluetooth",
-      "on-click-right": "bluetoothctl"
+      "on-click": "DMENU_BLUETOOTH_LAUNCHER='fuzzel --dmenu -p Bluetooth' dmenu-bluetooth",
+      "on-click-right": "bluetoothctl",
+      "exec": "dmenu-bluetooth --status"
     },
     "pulseaudio": {
         "class": "modules",
