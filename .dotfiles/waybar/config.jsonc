@@ -103,13 +103,15 @@
     "network": {
         "class": "modules",
         "format-wifi": "",
-        "format-ethernet": "󰈀 {ifname}",
+        "format": "{icon}",
+        "format-ethernet": "󰈀 ",
         "format-disconnected": "󰖪 ",
         "tooltip-format": "{ifname}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-        "on-click": "~/.local/bin/dmenu-networkmanager",
+        "on-click": "dmenu-networkmanager",
         "format-icons": {
-            "wifi": ["󰖪", "󰖯", "󰖰", "󰖱", "󰖲"]
+            "wifi": ["󰖪", "󰖯", "󰖰", "󰖱", "󰖲"],
+            "disabled": [""],
         }
     },
     "bluetooth": {
@@ -119,7 +121,7 @@
       "tooltip-format-enumerate-connected-battery": "{device_alias}: {device_battery_percentage}%",
       "tooltip-format-enumerate-connected": "{device_alias}",
       "tooltip-format-connected": "{device_enumerate}",
-      "on-click": "DMENU_BLUETOOTH_LAUNCHER='fuzzel --dmenu -p Bluetooth' dmenu-bluetooth",
+      "on-click": "DMENU_BLUETOOTH_LAUNCHER=fuzzel dmenu-bluetooth",
       "on-click-right": "bluetoothctl",
       "exec": "dmenu-bluetooth --status"
     },
