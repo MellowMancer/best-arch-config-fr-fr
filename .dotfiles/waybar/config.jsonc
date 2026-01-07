@@ -107,7 +107,7 @@
         "format-disconnected": "󰖪 ",
         "tooltip-format": "{ifname}",
         "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-        "on-click": "networkmanager_dmenu",
+        "on-click": "~/.local/bin/dmenu-networkmanager",
         "format-icons": {
             "wifi": ["󰖪", "󰖯", "󰖰", "󰖱", "󰖲"]
         }
