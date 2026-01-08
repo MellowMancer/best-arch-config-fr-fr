@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+killall fuzzel 2>/dev/null
+sleep 0.05
+exec fuzzel

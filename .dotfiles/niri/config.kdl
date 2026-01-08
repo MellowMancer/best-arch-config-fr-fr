@@ -474,7 +474,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "~/.local/bin/fuzzel-wrapper"; }
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -500,8 +500,8 @@ binds {
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "1%-"; }
 
     Mod+Ctrl+Shift+P { spawn-sh "niri msg pick-color | grep 'Hex:' | cut -d' ' -f2- | wl-copy"; }
-    Mod+N { spawn "/home/mel/.local/bin/dmenu-networkmanager"; }
-    Mod+B { spawn-sh "DMENU_BLUETOOTH_LAUNCHER=fuzzel /home/mel/.local/bin/dmenu-bluetooth"; }
+    Mod+N { spawn "~/.local/bin/dmenu-networkmanager"; }
+    Mod+B { spawn-sh "DMENU_BLUETOOTH_LAUNCHER=fuzzel ~/.local/bin/dmenu-bluetooth"; }
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
