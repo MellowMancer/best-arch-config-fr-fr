@@ -104,3 +104,19 @@ if vim.fn.isdirectory(undodir) == 0 then
   vim.fn.mkdir(undodir, "p")
 end
 
+-- Close terminals on nvim close
+vim.api.nvim_create_autocmd("QuitPre", {
+  callback = function()
+    local bufs = vim.api.nvim_list_bufs()
+    -- vim.notify(vim.inspect(bufs, { indent = "" }), vim.log.levels.INFO)
+    for i, buf in ipairs(bufs) do
+      if vim.api.nvim_buf_get_option(buf, "buftype") == "terminal" then
+          local name = vim.api.nvim_buf_get_name(buf)
+          vim.notify(name, vim.log.levels.INFO)
+          vim.api.nvim_buf_delete(buf, { force = true })
+          -- bdelete! name
+      end
+    end
+  end,
+})
+

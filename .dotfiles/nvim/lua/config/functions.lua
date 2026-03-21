@@ -165,7 +165,7 @@ end
 -- ============================================================================
 
 -- terminal
-M.terminal_state = {
+terminal_state = {
   buf = nil,
   win = nil,
   is_open = false
@@ -247,7 +247,7 @@ end
 function M.CloseTerminal()
   if terminal_state.is_open then
     vim.api.nvim_win_close(terminal_state.win, false)
-    fn.terminal_state.is_open = false
+    terminal_state.is_open = false
   end
 end
 
