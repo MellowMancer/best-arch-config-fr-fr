@@ -334,7 +334,7 @@ layout {
 //spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 
-spawn-at-startup "niri-float-sticky"
+// spawn-at-startup "niri-float-sticky"
 
 spawn-at-startup "swayidle" "-w" \
   "timeout" "600" "niri msg action power-off-monitors" \
@@ -430,10 +430,21 @@ window-rule {
   open-on-workspace "terminal"
 }
 
+// Block out mako notifications from screencasts.
+layer-rule {
+    match namespace="^notifications$"
+
+    block-out-from "screencast"
+}
+
+/-layer-rule {
+  match namespace="^swww$"
+  layer "background"
+}
 
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
-/-window-rule {
+window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
 
