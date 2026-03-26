@@ -5,7 +5,7 @@
     "reload_style_on_change": true,
     "font": "Iosevka, Extended 10",
 
-    "modules-left": ["niri/workspaces", "custom/spacer", "custom/niri-taskbar"],
+    "modules-left": ["niri/workspaces", "custom/spacer", "cffi/niri-taskbar"],
     "modules-center": [],
     "modules-right": ["tray", "custom/spacer", "group/usage", "custom/spacer", "group/right-main", "custom/spacer", "custom/power"],
     
@@ -29,17 +29,25 @@
       "clock"
     ]
   },
-"custom/niri-taskbar": {
-   "format": "{}",
-        "exec": "/home/mel/Projects/Code/niri-taskbar/target/release/libniri_taskbar.so",
-        "return-type": "json",
-        "escape": true,
-        "interval": 5,
-  },
- "custom/spacer": {
-   "format": "​"
+ 
+  "cffi/niri-taskbar": {
+    "module_path": "/home/mel/.archconfig/.dotfiles/waybar/niri-taskbar/target/release/libniri_taskbar.so",
+    "show_all_outputs": false,
+    "only_current_workspace": true,
+    "icon_size": 5,
+    "apps": {
+      "signal": [
+        {
+          "match": "\\([0-9]+\\)$",
+          "class": "unread",
+        },
+      ],
+    },
   },
 
+  "custom/spacer": {
+   "format": "​"
+  },
 
   "niri/workspaces": {
       "class": "modules",

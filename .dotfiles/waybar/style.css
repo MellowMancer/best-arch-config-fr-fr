@@ -110,3 +110,15 @@ button:hover {
   border-right: solid 0.4px @botw-text;
 }
 
+.niri-taskbar button {
+  margin: 1px;
+  padding: 2px;
+}
+
+.niri-taskbar button:hover{
+  background: rgba(0,0,0,0);
+}
+
+.niri-taskbar {
+  margin: 3px;
+}
