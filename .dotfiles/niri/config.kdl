@@ -332,7 +332,7 @@ layout {
 
 // This line starts waybar, a commonly used bar for Wayland compositors.
 //spawn-at-startup "waybar"
-spawn-at-startup "swww-daemon"
+spawn-at-startup "awww-daemon"
 
 // spawn-at-startup "niri-float-sticky"
 
@@ -438,7 +438,7 @@ layer-rule {
 }
 
 /-layer-rule {
-  match namespace="^swww$"
+  match namespace="^awww$"
   layer "background"
 }
 
