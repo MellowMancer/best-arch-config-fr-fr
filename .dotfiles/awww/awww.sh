@@ -1,7 +1,7 @@
-#start swww
+#start awww
 WALLPAPERS_DIR=~/Wallpapers/current
 WALLPAPER=$(find "$WALLPAPERS_DIR" -type f | shuf -n 1)
-swww-daemon &
+awww-daemon &
 sleep 1.0 &
-swww restore || swww img "$WALLPAPER"
+awww restore || awww img "$WALLPAPER"
 

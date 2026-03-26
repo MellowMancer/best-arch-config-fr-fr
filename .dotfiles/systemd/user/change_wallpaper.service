@@ -1,9 +1,9 @@
 [Unit]
-Description=Change wallpaper using SWWW
-After=swww.service
+Description=Change wallpaper using AWWW
+After=awww.service
 
 [Service]
-ExecStart=/bin/bash /home/mel/.config/swww/swww.sh
+ExecStart=/bin/bash /home/mel/.config/awww/awww.sh
 
 [Install]
 WantedBy=default.target
