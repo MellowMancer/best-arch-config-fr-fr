@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+if [[ -z "$1" ]]; then
+echo "Enter the folder name you want to copy"
+exit 1
+fi
+
+if [[ -L ~/.config/"$1" ]]; then
+echo "Folder already exists in repository"
+exit 1
+fi
+
+if [[ ! -d ~/.config/"$1" && -z "$2" ]]; then
+echo "Target folder does not exist"
+exit 1
+fi
+
+if [[ -n "$2" && "$2" != "skip" ]]; then
+echo "Invalid parameter (Did you mean to type?: skip)"
+exit 1
+fi
+
+if [[ -z "$2" ]]; then
+cp -r ~/.config/"$1" .dotfiles/"$1"
+rm -r ~/.config/"$1"
+fi
+
+ln -s "$(dirname "$(realpath "$0")")"/.dotfiles/"$1" ~/.config/"$1"
