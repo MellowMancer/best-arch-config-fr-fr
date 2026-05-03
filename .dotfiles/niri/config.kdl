@@ -430,6 +430,16 @@ window-rule {
   open-on-workspace "terminal"
 }
 
+window-rule {
+  match app-id=r#"^slack$"#
+  open-on-workspace "social"
+}
+
+window-rule {
+  match app-id=r#"^Roam$"#
+  open-on-workspace "social"
+}
+
 // Block out mako notifications from screencasts.
 layer-rule {
     match namespace="^notifications$"
