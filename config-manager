@@ -14,6 +14,11 @@ echo "Target folder does not exist"
 exit 1
 fi
 
+if [[ ! -d "$(dirname "$(realpath "$0")")"/.dotfiles/"$1" && -n "$2" ]]; then
+echo "Target folder does not exist"
+exit 1
+fi
+
 if [[ -n "$2" && "$2" != "skip" ]]; then
 echo "Invalid parameter (Did you mean to type?: skip)"
 exit 1
