@@ -7,7 +7,7 @@
 
     "modules-left": ["niri/workspaces", "custom/spacer", "cffi/niri-taskbar"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/spacer", "group/usage", "custom/spacer", "group/right-main", "custom/spacer", "custom/power"],
+    "modules-right": ["tray", "custom/spacer", "group/usage", "custom/fan", "custom/spacer", "group/right-main", "custom/spacer", "custom/power"],
     
 
 "group/usage": {
@@ -62,6 +62,13 @@
         "urgent": "",
         "default": "",
       }
+    },
+
+    "custom/fan": {
+    "exec": "sensors | grep 'CPU Fan' | awk '{print $3}'",
+    "interval": 2,
+    "format": "󰈐  {} RPM",
+    "tooltip": false
     },
     
 
